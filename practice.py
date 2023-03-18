@@ -48,4 +48,17 @@ summary = ' '.join(summary_sentences)
 from googletrans import Translator
 translator = Translator()
 textTranslate = translator.translate(summary, src='en',dest='es')
+
+# from gtts import gTTS
+# import os
+# myobj = gTTS(text=textTranslate.text, lang='es', slow=False)
+# myobj.save("resume.mp3")
+# os.system("resume.mp3")
+
+import pyttsx3
+
+engine = pyttsx3.init()
+engine.say(textTranslate.text)
+engine.runAndWait()
+
 print(textTranslate.text)
